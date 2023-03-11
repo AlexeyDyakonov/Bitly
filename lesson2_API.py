@@ -1,8 +1,10 @@
-import requests
-from urllib.parse import urlparse
-from dotenv import load_dotenv
 import argparse
 import os
+from urllib.parse import urlparse
+
+import requests
+from dotenv import load_dotenv
+
 
 def shorten_link(token, link):
     headers = {"Authorization": token}
@@ -44,7 +46,8 @@ def is_bitlink(token, link):
 if __name__ == '__main__':
     load_dotenv()
     token = os.getenv('BITLY_TOKEN')
-    parser = argparse.ArgumentParser(description='Создает битлинк или считает количество кликов по битлинку')
+    parser = argparse.ArgumentParser(description='Создает\
+        битлинк или считает количество кликов по битлинку')
     parser.add_argument('url', help='Ссылка на сайт или битлинк')
     args = parser.parse_args()
     user_input = args.url
